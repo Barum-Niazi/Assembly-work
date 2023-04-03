@@ -21,27 +21,20 @@ OUTERLOOP:
     ret
     
     SORTLOOP:
-        CMP AL, [SI]
+        CMP AL, [SI + 1]
         JL SWAP
         INC SI 
-        DEC CX
-        CMP CX, 0
-        JG SORTLOOP
-        MOV BL, [SI]
-        MOV [SI], AL
-        MOV [SI - 1], BL
+        LOOP SORTLOOP 
         JMP OUTERLOOP
         
      SWAP:
-        MOV AL, [SI]
-        MOV BL, [SI + 1]
-        MOV 
+        MOV AL, [SI + 1] 
         INC SI
-        DEC CX
-        CMP CX, 0
-        JG SORTLOOP
-        MOV [SI], AL  
-        MOV [SI - COUNT], BL
+        
+        LOOP SORTLOOP
+        MOV BL, [SI + 1]
+        MOV [SI + 1], AL
+        MOV [SI], BL 
         JMP OUTERLOOP
         
 ret

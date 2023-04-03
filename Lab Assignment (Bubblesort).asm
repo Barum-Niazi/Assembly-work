@@ -3,20 +3,18 @@ org 100h
 
 .data
 data DB 7, 5, 3, 9, 1
-length equ $ - array
+length DW 4
     
 .code
 XOR CX, CX
-MOV CX, length - 1 ; initializing loop counter to size of array - 1
-MOV SI, OFFSET data ; pointing SI to array 
 MOV AX, 0
 MOV DX, 0
 
 OUTERLOOP: 
-    MOV CX, 4 
+    MOV CX, length
     SUB CX, DX ; subbing loop counter with number of passes
     INC DX
-    MOV SI, OFFSET data
+    MOV SI, OFFSET data ; pointing SI to data
     CMP CX, 0
     JG BUBBLESORT
     ret

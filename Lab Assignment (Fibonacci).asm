@@ -2,7 +2,7 @@
 org 100h
 
 .data
-array DB 12 0 ; reserving 12 bytes for the array
+array DB 12 DUP(0) ; reserving 12 bytes for the array
 
 .code
 MOV CX, 12  ; CX is loop counter
