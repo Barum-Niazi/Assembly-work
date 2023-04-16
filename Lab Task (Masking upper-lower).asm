@@ -5,7 +5,7 @@ org 100h
 
 .code
 
-MOV DL, 'a'
+MOV DL, 'A'
 OR DL, 00100000b
 
 ret
